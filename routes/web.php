@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// cart group to pass on cart session
+Route::group(['middleware' => ['web']], function () {
+
+    #Test Funcions
+    Route::get('/addBlock', [ChainController::class,'addBlock']);
+
+    # Main
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });
