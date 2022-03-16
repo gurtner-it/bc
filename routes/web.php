@@ -21,8 +21,8 @@ Route::get('/', function () {
 // cart group to pass on cart session
 Route::group(['middleware' => ['web']], function () {
 
-    #Test Funcions
-    Route::get('/addBlock', [ChainController::class,'addBlock']);
+    Route::get('/addBlock/{content}', [ChainController::class,'addBlock']);
+    Route::get('/showAllBlocks', [ChainController::class,'showAllBlocks']);
 
     # Main
     Route::get('/', function () {
